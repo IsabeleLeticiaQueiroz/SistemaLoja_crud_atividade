@@ -1,0 +1,38 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<section data-bs-version="5.1" class="form6 cid-urcUvw8mR9" id="form6-3">
+  <div class="container">
+    <div class="mbr-section-head">
+      <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+        <strong>Edição de clientes</strong>
+      </h3>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+        <form action="/clientes/update" method="POST" class="mbr-form form-with-styler mx-auto" data-form-title="Form Name">
+          <input type="hidden" name="id" value="<%= cliente.id %>">
+          <div class="dragArea row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="nome">
+              <input type="text" name="nome" value="<%= cliente.nome %>" data-form-field="nome" class="form-control" id="nome-form6-3" >
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="cpf">
+              <input type="text" name="cpf" value="<%= cliente.cpf %>" data-form-field="cpf" class="form-control" id="cpf-form6-3" >
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="endereco">
+              <input type="text" name="endereco" value="<%= cliente.endereco %>" data-form-field="endereco" class="form-control" id="endereco-form6-3" >
+            </div>
+
+            <div class="col-auto mbr-section-btn align-center">
+              <button type="submit" class="btn btn-success display-4">Salvar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

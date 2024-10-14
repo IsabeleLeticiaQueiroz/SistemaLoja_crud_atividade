@@ -1,0 +1,88 @@
+<%- include ('partials/header.ejs') %>
+<%- include ('partials/navbar.ejs') %>
+<hr>
+
+<div class="container">
+    <div class="mbr-section-head">
+        <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+            <strong>Cadastro de pedidos</strong></h3>
+        
+    </div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+            <form action="/pedidos/new" method="POST" class="mbr-form form-with-styler mx-auto" data-form-title="pedidosnovo">
+                <div class="dragArea row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="numero">
+                        <input type="number" name="numero" placeholder="Numero" data-form-field="numero" class="form-control" value="" id="numero-form6-3">
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="valor">
+                        <input type="number" name="valor" placeholder="Valor" data-form-field="valor" class="form-control" value="" id="valor-form6-3" step="0.2">
+                    </div>
+                    <div class="col-auto mbr-section-btn align-center"><button type="submit" class="btn btn-success display-4">Cadastrar</button></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Produtos</h1>
+        </div>
+        <div class="card-body">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th>Numero</th>
+                        <th>Valor</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% pedidos.forEach(pedido => { %>
+                        <tr style="text-align: center;">
+                            <td><%= pedido.numero %></td>
+                            <td><%= pedido.valor %></td>
+                            <td>
+                                <a href="/pedidos/edit/<%= pedido.id %>" style="color:#e9ff3f;">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/pedidos/delete/<%= pedido.id %>" style="color:#ee1000;">
+                                    <i class="bi bi-x-octagon-fill"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center; /* Centraliza o conteúdo das células */
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    td a {
+        text-decoration: none;
+        display: inline-block;
+    }
+</style>
+<%- include ('partials/footer.ejs') %>
